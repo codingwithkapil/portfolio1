@@ -5,6 +5,8 @@ import AnimatedText from '@/component/AnimatedText'
 import Link from 'next/link'
 import Image from 'next/image'
 import { LinkArrow } from '@/component/Icons'
+import HireMe from '@/component/HireMe'
+import lightBulb from "../../public/images/svgs/miscellaneous_icons_1.svg"
 
 export default function Home() {
   return (
@@ -39,6 +41,10 @@ export default function Home() {
         </div>
         </div>
       </Layout>
+      <HireMe/>
+      <div>
+        <Image src={lightBulb} alt="TechSharma" className='w-full h-auto'></Image>
+      </div>
       </main>
     </>
   )
