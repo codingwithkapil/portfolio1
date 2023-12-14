@@ -3,6 +3,9 @@ import AnimatedText from './AnimatedText'
 import Layout from './Layout'
 import ProfilePic from "../../public/images/profile/developer-pic-2.jpg"
 import { useInView, useMotionValue, useSpring } from 'framer-motion'
+import Skills from './Skills'
+import Experience from './Experience'
+import Education from './Education'
 
 
 const AnimatedNumbers = ({value})=>{
@@ -31,7 +34,7 @@ useEffect(()=>{
 
 
 
-const About = () => {
+const about = () => {
   return (
     <>
       <Head>
@@ -81,10 +84,13 @@ const About = () => {
             </div>
           </div>
           </div>
+          <Skills/>
+          <Experience/>
+          <Education/>
         </Layout>
       </main>
     </>
   )
 }
 
-export default About
+export default about

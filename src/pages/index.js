@@ -41,7 +41,7 @@ export default function Home() {
         </div>
         </div>
       </Layout>
-      <HireMe/>
+      <HireMe />
       <div>
         <Image src={lightBulb} alt="TechSharma" className='w-full h-auto'></Image>
       </div>
