@@ -1,25 +1,27 @@
-import React, { useEffect } from 'react'
-import AnimatedText from './AnimatedText'
-import Layout from './Layout'
+import React, { useEffect, useRef } from 'react'
+import Head from 'next/head'
+import Image from 'next/image'
+import AnimatedText from '../component/AnimatedText'
+import Layout from '../component/Layout'
 import ProfilePic from "../../public/images/profile/developer-pic-2.jpg"
 import { useInView, useMotionValue, useSpring } from 'framer-motion'
-import Skills from './Skills'
-import Experience from './Experience'
-import Education from './Education'
+import Skills from '../component/Skills'
+import Experience from '../component/Experience'
+import Education from '../component/Education'
 
 
 const AnimatedNumbers = ({value})=>{
 const ref = useRef(null);
 
 const motionValue= useMotionValue(0);
-const spring = useSpring(motionValue,{duration:3000})
+const springValue = useSpring(motionValue,{duration:3000})
 const isInViwe = useInView(ref, {once:true});
 
 useEffect(()=>{
   if(isInViwe){
     motionValue.set(value);
   }
-},[isInViwe,value, motionValue])
+},[isInViwe, value, motionValue])
 
 useEffect(()=>{
   springValue.on("change", (latest)=>{
@@ -29,7 +31,7 @@ useEffect(()=>{
   })
 },[springValue,value])
 
-  return <span></span>
+  return <span ref={ref}></span>
 }
 
 
@@ -52,7 +54,7 @@ const about = () => {
                 and user-centered digital experiences. With 4 years of experience in the field. I am always looking for
                 new and innovative ways to bring my clients' visions to life.
               </p>
-              <p className='font-medium'>I believe that web design is about more than just making things look pretty – it's about solving problems and
+              <p className=' my-4 font-medium'>I believe that web design is about more than just making things look pretty – it's about solving problems and
                 creating intuitive, enjoyable experiences for users.</p>
               <p className='font-medium'>Whether I'm working on a website, mobile app, or
                 other digital product, I bring my commitment to design excellence and user-centered thinking to
@@ -63,7 +65,7 @@ const about = () => {
               <div className='absolute top-0 -right-3 -z-10 w-[102%] h-[103%] rounded-[2rem] bg-dark'/>
               <Image src={ProfilePic} alt="TechSharma" className="w-full h-auto rounded-2xl"></Image>
             </div>
-            <div className='col-span-2 flex items-end justify-between'>
+            <div className='col-span-2 flex flex-col items-end justify-between'>
               <div className='flex flex-col justify-center items-end'>
                 <span className='inline-block text-7xl font-bold'>
                 <AnimatedNumbers value={50} />+

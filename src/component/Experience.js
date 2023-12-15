@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { useScroll, motion } from 'framer-motion'
-import LiIcon from './Liicon'
+import LiIcon from './LiIcon'
 
 const Details = ({position, company, companyLink, time, address, work})=>{
-    const ref = useScroll(null);
-    return <li className='my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-center'>
+    const ref = useRef(null);
+    return <li ref={ref} className='my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col items-center justify-between'>
         <LiIcon reference={ref}/>
         <motion.div
         initial={{y:50}}
@@ -79,7 +79,7 @@ const Experience = () => {
                                 developing new tools for data analysis and visualization."
                                 />
             </ul>
-        </motion.div>
+        </div>
     </div>
   )
 }
