@@ -78,7 +78,7 @@ export const NavBar = () => {
             <motion.a href="https://twitter.com" target={"_blank"}
             whileHover={{y:-2}}
             whileTap={{scale:0.9}}
-            className="w-6 mx-3 dark:bg-light rounded-full">
+            className="w-6 mx-3 dark:bg-dark rounded-full">
                 <GithubIcon/>
             </motion.a>
             <motion.a href="https://twitter.com" target={"_blank"}
@@ -155,11 +155,12 @@ export const NavBar = () => {
                     className="w-6 ml-3">
                         <DribbbleIcon/>
                     </motion.a>
-                    <button onClick={()=>setMode(mode==="light" ? "dark" : "light")}
+                    <button 
+                    onClick={()=>setMode(mode === "light" ? "dark" : "light")}
                     className={`ml-3 flex items-center justify-center rounded-full p-1
                     ${mode==="light"?"bg-dark text-light" : "bg-light text-dark"}`}>
                     {
-                    mode ==='dark'?
+                    mode ==="dark"?
                     <SunIcon className={"fill-dark"} />
                     : <MoonIcon className={"fill-dark"} />
                     }
